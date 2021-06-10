@@ -225,3 +225,74 @@ You can also draw text onto canvas. These texts can contain any Unicode characte
 </script>
  ```
  ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### SVG
+The Scalable Vector Graphics (SVG) is an XML-based image format that is used to define two-dimensional vector based graphics for the web. Unlike raster image (e.g. .jpg, .gif, .png, etc.), a vector image can be scaled up or down to any extent without losing the image quality.
+* Embedding SVG into HTML Pages
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Embedding SVG in HTML</title>
+</head>
+<body>
+    <svg width="300" height="200">
+        <text x="10" y="20" style="font-size:14px;">
+            Your browser support SVG.
+        </text>
+        Sorry, your browser does not support SVG.
+    </svg>
+</body>
+</html>
+```
+* Drawing a Line : The attributes x1, x2, y1 and y2 of the <line> element draw a line from (x1,y1) to (x2,y2).
+```html
+<svg width="300" height="200">
+    <line x1="50" y1="50" x2="250" y2="150" style="stroke:red; stroke-width:3;" />
+</svg>
+```
+* Drawing a Rectangle
+The attributes x and y of <rect> element defines the co-ordinates of the top-left corner of the rectangle. The attributes width and height specifies the width and height of the shape.
+```html
+<svg width="300" height="200">
+    <rect x="50" y="50" width="200" height="100" style="fill:orange; stroke:black; stroke-width:3;" />
+</svg>
+```
+* Drawing a Circle: The attributes cx and cy of the <circle> element defines the co-ordinates of the center of the circle and the attribute r specifies the radius of the circle. However, if the attributes cx and cy are omitted or not specified, the center of the circle is set to (0,0)
+```html
+<svg width="300" height="200">
+    <circle cx="150" cy="100" r="70" style="fill:lime; stroke:black; stroke-width:3;" />
+</svg>
+```
+* Drawing Text with SVG
+You can also draw text on the web pages with SVG. The text in SVG is rendered as a graphic so you can apply all the graphic transformation to it but it is still acts like text — that means it can be selected and copied as text by the user. Let's try an example to see how this works:The attributes x and y of the <text> element defines the location of the top-left corner in absolute terms whereas the attributes dx and dy specifies the relative location.
+```html
+<svg width="300" height="200">
+    <text x="20" y="30" style="fill:purple; font-size:22px;">
+        Welcome to Our Website!
+    </text>
+    <text x="20" y="30" dx="0" dy="20" style="fill:navy; font-size:14px;">
+        Here you will find lots of useful information.
+    </text>
+</svg>
+```
+You can even use the <tspan> element to reformat or reposition the span of text contained within a <text> element. Text contained in separate tspans, but inside the same text element can all be selected at once — when you click and drag to select the text. However, the text in separate text elements cannot be selected at the same time. Let's check out an example:
+```html
+<svg width="300" height="200">
+    <text x="30" y="15" style="fill:purple; font-size:22px; transform:rotate(30deg);">
+        <tspan style="fill:purple; font-size:22px;">
+            Welcome to Our Website!
+        </tspan>
+        <tspan dx="-230" dy="20" style="fill:navy; font-size:14px;">
+            Here you will find lots of useful information.
+        </tspan>
+    </text>
+</svg>
+```
+
+SVG: 1) Vector based (composed of shapes). 2)Multiple graphical elements, which become the part of the page's DOM tree. 3) Modified through script and CSS. 4) Good text rendering capabilities. 5)Give better performance with smaller number of objects or larger surface, or both. 6) Better scalability. Can be printed with high quality at any resolution. Pixelation does not occur
+
+CAnvas: 1)Raster based (composed of pixel). 2)Single element similar to <img> in behavior. Canvas diagram can be saved to PNG or JPG format. 3) Modified through script only. 4) Poor text rendering capabilities. 5) Give better performance with larger number of objects or smaller surface, or both. 6) Poor scalability. Not suitable for printing on higher resolution. Pixelation may occur
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------
